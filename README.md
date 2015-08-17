@@ -5,7 +5,7 @@ This program can run in background and saves data while running.
 
 Program syntax:
 
-$ tlab -d<dbname> -h<hostaddr> -p<port> -u<user> -p[<password>]
+$ "tlab -d<dbname> -h<hostaddr> -p<port> -u<user> -p[<password>]"
 
 
 
