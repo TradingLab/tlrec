@@ -5,11 +5,11 @@ This program can run in background and saves data while running.
 
 # Environment
 
-Operating System: openSUSE 13.1
-Development tool: KDevelop 4.5.2 for KDE 4.11.5
-Languaje: C++
-Program directory; HOME/TradingLab/tlrec
-PostgreSQL lib: libpqxx
+* Operating System: openSUSE 13.1
+* Development tool: KDevelop 4.5.2 for KDE 4.11.5
+* Languaje: C++
+* Program directory; HOME/TradingLab/tlrec
+* PostgreSQL lib: libpqxx
 
 # PostgreSQL config
 
