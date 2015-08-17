@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jordi/TradingLab/tlrec/main.cpp
+fstream
+-
+vector
+-
+string
+-
+sstream
+-
+cstdlib
+-
+iostream
+-
+stdio.h
+-
+time.h
+-
+termios.h
+-
+unistd.h
+-
+pqxx/pqxx
+-
+
