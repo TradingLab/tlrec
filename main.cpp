@@ -253,7 +253,7 @@ void Insert_Quotes(connection &C, vector<string> &line) {
 //    cout << sql << endl;
 }
 
-void Process_Quotes (connection &C, int &i) {
+void Process_Quotes (connection &C, unsigned long &i) {
     std::string s;
     vector<string> line;
     string textFile;
@@ -282,6 +282,7 @@ void Process_Quotes (connection &C, int &i) {
 int main(int argc, char **argv) {
     string db, host, port, usr, pwd, con;
     int len;
+    unsigned long i;
 
     if (argc ==  2) {
         if (string(argv[1]) == "-h") {
@@ -376,16 +377,19 @@ int main(int argc, char **argv) {
         // l1 = Last Trade (Price Only)  FLOAT4
         // m  = Day's Average            CHAR40
         // v  = Volume                   INT4
-        string command =  "wget -q -O quotes.csv \"http://finance.yahoo.com/d/quotes.csv?s=EURUSD=X+EURGBP=X&f=snd1t1abll1mv\"";
+        string command =  "wget -q -O quotes.csv \"http://finance.yahoo.com/d/quotes.csv?s=EURUSD=X+EURGBP=X+EURAUD=X+EURJPY=X+EURCHF=X+EURSEK=X+EURCAD=X+EURNZD=X+EURSGD=X+EURNOK=X&f=snd1t1abll1mv\"";
         //http://www.howtogeek.com/89360/how-to-view-stock-quotes-from-the-command-line/
         //curl -s 'http://download.finance.yahoo.com/d/quotes.csv?s=aapl&f=l1'
-        for(int i=0; i<20000; i++) {  //720 = 2h de actividad
+//        for(int i=0; i<20000; i++) {  //720 = 2h de actividad
+	i = 1;
+	while (true) {
             system(command.c_str());
             //http://www.cplusplus.com/forum/beginner/91389/
             //http://www.cplusplus.com/forum/beginner/104130/
             Process_Quotes(C, i);
             cout << endl;
-            pqxx::internal::sleep_seconds(10);
+            pqxx::internal::sleep_seconds(4);
+	    i += 1;
         }
         C.disconnect ();
         cout << "Closed database successfully: " << C.dbname() << endl;
